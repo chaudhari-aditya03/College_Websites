@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My School & College - Amruteshwar Secondary and Higher Secondary School</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px;
+            }
+
+            .school-title {
+                font-size: 1.5rem !important;
+            }
+
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Static Hero Image Styling --- */
+        .hero-image-container {
+            position: relative;
+            height: 450px; /* Consistent height with former carousel */
+            overflow: hidden;
+            background-color: #777; /* Fallback background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(60%); /* Darken image for better text contrast */
+        }
+
+        .hero-image-content {
+            position: relative; /* Ensure content is above the image */
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .hero-image-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero-image-content p {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        /* Marquee Container Styling */
+        .marquee-container {
+            background-color: #e0f2f7; /* Light blue background for the block */
+            border: 1px solid #b3e5fc; /* Subtle border */
+            border-radius: 15px; /* Rounded corners for the block */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 10px 20px; /* Padding inside the block */
+            margin: 30px auto; /* Center the block and add vertical margin */
+            max-width: 90%; /* Limit width for better appearance on large screens */
+            overflow: hidden; /* Ensure marquee content stays within */
+        }
+
+        marquee h3 {
+            color: #002147; /* Dark blue text color */
+            font-size: 1.2rem;
+            font-weight: 600; /* Make text a bit bolder */
+            white-space: nowrap; /* Ensure text stays on one line */
+            margin: 0; /* Remove default margin from h3 */
+            padding: 5px 0; /* Add vertical padding to the text inside marquee */
+        }
+
+        /* Section Titles */
+        .container h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .container h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Chairman/Principal Sections */
+        #chairman .row, #principal .row, #principal-message .row {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        #chairman img, #principal img, #principal-message img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #chairman h5, #principal h5, #principal-message h5 {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-top: 15px;
+        }
+
+        #chairman p.lead, #principal p.lead, #principal-message p.lead {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Programs Section */
+        #programs .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #programs .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        #programs .card-img-top {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #programs .card-body {
+            padding: 25px;
+        }
+
+        #programs .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.75rem;
+        }
+
+        #programs .btn-outline-primary {
+            border-radius: 20px;
+            font-weight: 600;
+            padding: 8px 25px;
+        }
+
+        /* --- Footer Styling --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img"
+                    alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title"
+                    style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                    Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img"
+                    alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scholar_students.html">Scholar Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Static Hero Image Section -->
+    <section class="hero-image-container">
+        <img src="img/classroom.jpeg" class="d-block w-100"
+            alt="School Building">
+        <div class="hero-image-content">
+            <h1>Welcome to Amruteshwar School</h1>
+            <p>Fostering excellence and innovation in education.</p>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+            <h3><b><i> 🔸 Admission open for 2025 batch! &nbsp;&nbsp;&nbsp;
+                        ● Mid-Term exams will begin from 10th August. &nbsp;&nbsp;&nbsp;</i></b>
+            </h3>
+        </marquee>
+    </div>
+
+    <!-- Chairman Section -->
+    <section class="py-5 bg-light" id="chairman">
+        <div class="container">
+            <h2 class="text-center mb-4"><b>Chairman </b></h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="img/drsaheb.png" class="img-fluid rounded-circle shadow"
+                        alt="Chairman">
+                    <h5 class="mt-3"><b>Hon.Dr.Sudhir Tambe</b></h5>
+                </div>
+                <div class="col-md-8">
+                    <p class="lead">Welcome to our institution — a place where young minds are shaped into future
+                        leaders. We strive to create an inclusive environment where education meets innovation and
+                        values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cornerstone Section -->
+    <section class="py-5" id="principal">
+        <div class="container">
+            <h2 class="text-center mb-4"><b> Cornerstone of the Institution </b></h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 order-md-2 text-center">
+                    <img src="https://placehold.co/200x200/cccccc/333333?text=Cornerstone" class="img-fluid rounded-circle shadow"
+                        alt="Principal">
+                    <h5 class="mt-3"><b>Hon.Shri.Lahanbhau Gunjal</b></h5>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <p class="lead">This school reflects the shared dream of the late Shri Bhausaheb Santuji Thorat —
+                        to empower underprivileged youth through quality education. It is inspiring to see children
+                        from rural backgrounds grow with ambition and confidence. I hope our students pursue not only
+                        academic excellence but also values like compassion, leadership, and social responsibility.
+                        Teachers are encouraged to guide every child with respect and care. Let us all support this
+                        institution, as its success uplifts the entire society. Every classroom here carries forward
+                        Dada's vision of dignity and opportunity through education</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal Message Section -->
+    <section class="py-5 bg-light" id="principal-message">
+        <div class="container">
+            <h2 class="text-center mb-4"> <b>Principal</b> </h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="https://placehold.co/200x200/cccccc/333333?text=Principal" class="img-fluid rounded-circle shadow"
+                        alt="Principal">
+                    <h5 class="mt-3"> <b>Mr.S.M.Khemnar Sir</b></h5>
+                </div>
+                <div class="col-md-8">
+                    <p class="lead">Our school is a hub of structure and innovation — every activity is carefully
+                        planned, every lesson delivered with passion. Punctuality here is more than routine; it
+                        reflects the discipline and respect we instill in our students. We continuously introduce new
+                        methods — experiential learning, modern pedagogy, and creative projects — to make education
+                        effective and inspiring. Humility guides us: I don’t see myself above others, but as someone
+                        working alongside teachers and students in the pursuit of excellence. This institution must
+                        remain a nurturing space where young minds gain confidence, character, curiosity, and the
+                        courage to serve society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="bg-light py-5" id="history">
+        <div class="container">
+            <h2 class="text-center mb-4">Our History</h2>
+            <p class="text-center">Founded in 1990, My School & College has been a pioneer in education for over three
+                decades. From a small campus to a thriving institution, we have grown with a strong commitment to
+                academic excellence.</p>
+        </div>
+    </section>
+
+    <!-- Academic Programs Section -->
+    <section class="py-5" id="programs">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Academic Programs</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/400x200/007bff/ffffff?text=School+Programs" class="card-img-top"
+                            alt="School Programs">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">School</h5>
+                            <p>Foundational education from Nursery to 10th grade.</p>
+                            <a href="courses.html#school" class="btn btn-outline-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/400x200/007bff/ffffff?text=College+Programs" class="card-img-top"
+                            alt="College">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Junior College</h5>
+                            <p>Science, Arts, and Commerce streams for 11th & 12th.</p>
+                            <a href="courses.html#college" class="btn btn-outline-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/400x200/007bff/ffffff?text=Professional+Courses" class="card-img-top"
+                            alt="Professional">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Professional</h5>
+                            <p>Diploma & certificate programs in IT, Design & more.</p>
+                            <a href="courses.html#professional" class="btn btn-outline-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education
+                        and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="scholar_students.html">Scholar Students</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize ScrollReveal for various sections
+        ScrollReveal().reveal('#chairman', { delay: 200, distance: '50px', origin: 'bottom', duration: 800 });
+        ScrollReveal().reveal('#principal', { delay: 400, distance: '50px', origin: 'bottom', duration: 800 });
+        ScrollReveal().reveal('#history', { delay: 600, distance: '50px', origin: 'bottom', duration: 800 });
+        ScrollReveal().reveal('#programs', { delay: 800, distance: '50px', origin: 'bottom', duration: 800 });
+    </script>
+
+</body>
+
+</html>

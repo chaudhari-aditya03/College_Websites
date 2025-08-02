@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses | Amruteshwar Secondary and Higher Secondary School</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6; /* Ensure consistent line height */
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px; /* Adjust as needed */
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px; /* Smaller on mobile */
+            }
+            .school-title {
+                font-size: 1.5rem !important; /* Adjust font size for mobile */
+            }
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147; /* Dark blue for a modern look, consistent with other pages */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color); /* Bootstrap primary blue */
+            border-radius: 5px;
+        }
+
+        /* --- Courses Section Styling --- */
+        #courses {
+            padding: 80px 0;
+            background-color: #e9ecef;
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 50px;
+            text-align: center; /* Ensure title is centered */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .course-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
+            background-color: #fff;
+            height: 100%; /* Ensure cards are same height */
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+        .course-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .course-card .card-body {
+            padding: 2rem;
+            text-align: center;
+        }
+        .course-card .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        .course-card .card-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        .btn-primary-outline {
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+        .btn-primary-outline .fas {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        .btn-primary-outline:hover .fas {
+            transform: translateX(5px);
+        }
+
+        /* --- Footer Styling (from main website) --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd; /* Ensure social icons match footer text color */
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header from main website -->
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img" alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img" alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation from main website -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link "  href="scholar_students.html">Scholar Students</a></li>
+                       <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="courses">
+            <div class="container">
+                <h2 class="text-center section-title">Our Diverse Courses</h2>
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="card h-100 course-card">
+                            <img src="https://placehold.co/400x250/007bff/ffffff?text=Secondary+School" class="card-img-top" alt="Secondary School Course">
+                            <div class="card-body">
+                                <h5 class="card-title">Secondary School (5th to 10th)</h5>
+                                <p class="card-text">Our secondary curriculum provides a strong academic foundation, fostering critical thinking and holistic development for students from 5th to 10th grade.</p>
+                                <a href="admissions.html" class="btn btn-primary-outline">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <div class="card h-100 course-card">
+                            <img src="https://placehold.co/400x250/007bff/ffffff?text=Junior+College" class="card-img-top" alt="Junior College Course">
+                            <div class="card-body">
+                                <h5 class="card-title">Junior College (11th & 12th)</h5>
+                                <p class="card-text">Choose from Science, Commerce, and Arts streams. Our specialized programs prepare students for competitive exams and higher education.</p>
+                                <a href="admissions.html" class="btn btn-primary-outline">Explore Streams <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer from main website -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ScrollReveal animations for the Courses page
+        ScrollReveal().reveal('.course-card', {
+            delay: 200,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 800,
+            interval: 150,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar Students - Amruteshwar Secondary and Higher Secondary School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px;
+            }
+
+            .school-title {
+                font-size: 1.5rem !important;
+            }
+
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Scholar Students Section Styling --- */
+        .scholar-section h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .scholar-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .scholar-section h3 {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .year-filter-buttons .btn {
+            font-weight: 600;
+            margin: 0 5px;
+            padding: 10px 25px;
+        }
+
+        .student-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .student-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 20%;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .student-card h4 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .student-card p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .student-card p:first-of-type {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* --- Footer Styling --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img"
+                    alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img"
+                    alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link active"  href="scholar_students.html">Scholar Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5 scholar-section">
+        <h2 class="text-center mb-5">Our Scholar Students</h2>
+        <div class="d-flex flex-wrap justify-content-center mb-4 gap-2">
+            <button type="button" class="btn btn-outline-primary active" data-year="2025">2025</button>
+            <button type="button" class="btn btn-outline-primary" data-year="2024">2024</button>
+            <button type="button" class="btn btn-outline-primary" data-year="2023">2023</button>
+            <button type="button" class="btn btn-outline-primary" data-year="2022">2022</button>
+            <button type="button" class="btn btn-outline-primary" data-year="2021">2021</button>
+        </div>
+
+        <div class="scholar-students-container">
+            <div class="year-content" id="year-2025">
+                <h3>Class 10th - 2025</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=1st" class="student-img" alt="Student Photo">
+                            <h4>Aarav Sharma</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=2nd" class="student-img" alt="Student Photo">
+                            <h4>Diya Patel</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.2%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=3rd" class="student-img" alt="Student Photo">
+                            <h4>Kabir Singh</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.8%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Science - 2025</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=1st" class="student-img" alt="Science Student Photo">
+                            <h4>Ishaan Mehta</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 97.9%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=2nd" class="student-img" alt="Science Student Photo">
+                            <h4>Rhea Kapoor</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 96.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=3rd" class="student-img" alt="Science Student Photo">
+                            <h4>Aryan Gupta</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 95.8%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Commerce - 2025</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=1st" class="student-img" alt="Commerce Student Photo">
+                            <h4>Siya Shah</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 95.1%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=2nd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Rahul Verma</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 94.7%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=3rd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Anushka Rao</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 93.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Arts - 2025</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=1st" class="student-img" alt="Arts Student Photo">
+                            <h4>Vivaan Das</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 94.2%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=2nd" class="student-img" alt="Arts Student Photo">
+                            <h4>Zara Khan</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 93.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=3rd" class="student-img" alt="Arts Student Photo">
+                            <h4>Arjun Reddy</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 92.5%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-content d-none" id="year-2024">
+                <h3>Class 10th - 2024</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=1st" class="student-img" alt="Student Photo">
+                            <h4>Rohan Joshi</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 97.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=2nd" class="student-img" alt="Student Photo">
+                            <h4>Meera Sharma</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 96.9%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=3rd" class="student-img" alt="Student Photo">
+                            <h4>Karan Malhotra</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 95.5%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Science - 2024</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=1st" class="student-img" alt="Science Student Photo">
+                            <h4>Aditi Rao</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.1%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=2nd" class="student-img" alt="Science Student Photo">
+                            <h4>Vikram Khanna</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=3rd" class="student-img" alt="Science Student Photo">
+                            <h4>Priya Singh</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.2%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Commerce - 2024</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=1st" class="student-img" alt="Commerce Student Photo">
+                            <h4>Arjun Kapoor</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 96.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=2nd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Sneha Reddy</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 95.3%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=3rd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Rahul Sharma</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 94.8%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Arts - 2024</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=1st" class="student-img" alt="Arts Student Photo">
+                            <h4>Sameer Khan</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 95.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=2nd" class="student-img" alt="Arts Student Photo">
+                            <h4>Divya Singh</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 94.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=3rd" class="student-img" alt="Arts Student Photo">
+                            <h4>Ankit Kumar</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 93.2%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-content d-none" id="year-2023">
+                <h3>Class 10th - 2023</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=1st" class="student-img" alt="Student Photo">
+                            <h4>Priya Sharma</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=2nd" class="student-img" alt="Student Photo">
+                            <h4>Vivek Kumar</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.1%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=3rd" class="student-img" alt="Student Photo">
+                            <h4>Sneha Patel</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.0%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Science - 2023</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=1st" class="student-img" alt="Science Student Photo">
+                            <h4>Ankit Gupta</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 97.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=2nd" class="student-img" alt="Science Student Photo">
+                            <h4>Megha Singh</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 96.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=3rd" class="student-img" alt="Science Student Photo">
+                            <h4>Rohit Verma</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 95.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Commerce - 2023</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=1st" class="student-img" alt="Commerce Student Photo">
+                            <h4>Kavya Rao</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 95.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=2nd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Arjun Sharma</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 94.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=3rd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Disha Patel</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 93.7%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Arts - 2023</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=1st" class="student-img" alt="Arts Student Photo">
+                            <h4>Aryan Gupta</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 94.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=2nd" class="student-img" alt="Arts Student Photo">
+                            <h4>Simran Kaur</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 93.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=3rd" class="student-img" alt="Arts Student Photo">
+                            <h4>Kabir Khan</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 92.8%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-content d-none" id="year-2022">
+                <h3>Class 10th - 2022</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=1st" class="student-img" alt="Student Photo">
+                            <h4>Riya Das</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 97.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=2nd" class="student-img" alt="Student Photo">
+                            <h4>Rahul Singh</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 96.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=3rd" class="student-img" alt="Student Photo">
+                            <h4>Anjali Verma</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 95.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Science - 2022</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=1st" class="student-img" alt="Science Student Photo">
+                            <h4>Siddharth Rao</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.2%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=2nd" class="student-img" alt="Science Student Photo">
+                            <h4>Pooja Mehta</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.1%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=3rd" class="student-img" alt="Science Student Photo">
+                            <h4>Gaurav Sharma</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.5%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Commerce - 2022</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=1st" class="student-img" alt="Commerce Student Photo">
+                            <h4>Aditya Kumar</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 96.1%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=2nd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Divya Sharma</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 95.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=3rd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Rajat Gupta</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 94.2%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Arts - 2022</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=1st" class="student-img" alt="Arts Student Photo">
+                            <h4>Ishita Singh</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 95.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=2nd" class="student-img" alt="Arts Student Photo">
+                            <h4>Ananya Das</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 93.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=3rd" class="student-img" alt="Arts Student Photo">
+                            <h4>Kartik Patel</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 92.9%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-content d-none" id="year-2021">
+                <h3>Class 10th - 2021</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=1st" class="student-img" alt="Student Photo">
+                            <h4>Aryan Sharma</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=2nd" class="student-img" alt="Student Photo">
+                            <h4>Neha Gupta</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/0d6efd/ffffff?text=3rd" class="student-img" alt="Student Photo">
+                            <h4>Rohan Singh</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Science - 2021</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=1st" class="student-img" alt="Science Student Photo">
+                            <h4>Kavya Sharma</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 98.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=2nd" class="student-img" alt="Science Student Photo">
+                            <h4>Vivek Mehta</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 97.2%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/28a745/ffffff?text=3rd" class="student-img" alt="Science Student Photo">
+                            <h4>Priya Reddy</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 96.8%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Commerce - 2021</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=1st" class="student-img" alt="Commerce Student Photo">
+                            <h4>Sameer Khan</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 96.5%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=2nd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Disha Singh</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 95.8%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/ffc107/000000?text=3rd" class="student-img" alt="Commerce Student Photo">
+                            <h4>Ankit Patel</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 94.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Class 12th Arts - 2021</h3>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 justify-content-center">
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=1st" class="student-img" alt="Arts Student Photo">
+                            <h4>Riya Gupta</h4>
+                            <p><strong>Rank:</strong> 1st</p>
+                            <p><strong>Percentage:</strong> 95.2%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=2nd" class="student-img" alt="Arts Student Photo">
+                            <h4>Karan Sharma</h4>
+                            <p><strong>Rank:</strong> 2nd</p>
+                            <p><strong>Percentage:</strong> 94.0%</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="student-card">
+                            <img src="https://placehold.co/150x150/dc3545/ffffff?text=3rd" class="student-img" alt="Arts Student Photo">
+                            <h4>Shruti Das</h4>
+                            <p><strong>Rank:</strong> 3rd</p>
+                            <p><strong>Percentage:</strong> 93.5%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="scholar_students.html">Scholar Students</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearButtons = document.querySelectorAll('[data-year]');
+            const yearContents = document.querySelectorAll('.year-content');
+
+            yearButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    yearButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const targetYear = this.getAttribute('data-year');
+
+                    yearContents.forEach(content => {
+                        content.classList.add('d-none');
+                    });
+
+                    document.getElementById(`year-${targetYear}`).classList.remove('d-none');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

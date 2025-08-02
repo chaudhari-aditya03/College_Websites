@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Amruteshwar Secondary and Higher Secondary School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px;
+            }
+            .school-title {
+                font-size: 1.5rem !important;
+            }
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Gallery Section Styling --- */
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .gallery-section h2 {
+            font-weight: 700;
+            color: var(--primary-color); /* Consistent with other section titles */
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center; /* Ensure title is centered */
+            padding-bottom: 15px; /* Added for the ::after element */
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0; /* Adjusted from -10px to 0 for consistency */
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color); /* Consistent underline color */
+            border-radius: 2px;
+        }
+
+        .filter-buttons .btn {
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-buttons .btn.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Added for smooth fade-in/out effect */
+        .gallery-item {
+            transition: opacity 0.4s ease, transform 0.4s ease, height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+            overflow: hidden; /* Ensures content doesn't spill during height transition */
+        }
+
+        .gallery-item.d-none {
+            opacity: 0;
+            transform: scale(0.95);
+            height: 0;
+            padding: 0;
+            margin: 0;
+            visibility: hidden; /* Hides it completely from screen readers and interaction */
+        }
+
+        /* --- Footer Styling --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0; /* Adjusted padding for consistency */
+        }
+
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd; /* Ensure social icons match footer text color */
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header from main website -->
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img" alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img" alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation from main website -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link "  href="scholar_students.html">Scholar Students</a></li>
+                          <li class="nav-item"><a class="nav-link " href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link active " href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5 gallery-section">
+        <h2 class="text-center mb-5">Our School & College Gallery</h2>
+
+        <div class="d-flex justify-content-center mb-4 filter-buttons">
+            <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="campus">Campus</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="events">Events</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="labs">Labs</button>
+            <button type="button" class="btn btn-outline-primary" data-filter="sports">Sports</button>
+        </div>
+
+        <div class="row g-4 gallery-container">
+            <!-- Gallery Item: Campus 1 -->
+            <div class="col-md-4 gallery-item" data-category="campus">
+                <a href="https://placehold.co/800x600/007bff/ffffff?text=Campus+1" data-lightbox="gallery"
+                    data-title="Our magnificent school building.">
+                    <img src="https://placehold.co/400x250/007bff/ffffff?text=Campus+1" class="img-fluid gallery-img"
+                        alt="School Building">
+                </a>
+            </div>
+            <!-- Gallery Item: Lab 1 -->
+            <div class="col-md-4 gallery-item" data-category="labs">
+                <a href="https://placehold.co/800x600/28a745/ffffff?text=Lab+1" data-lightbox="gallery"
+                    data-title="Students conducting experiments in the science lab.">
+                    <img src="https://placehold.co/400x250/28a745/ffffff?text=Lab+1" class="img-fluid gallery-img"
+                        alt="Science Lab">
+                </a>
+            </div>
+            <!-- Gallery Item: Campus 2 -->
+            <div class="col-md-4 gallery-item" data-category="campus">
+                <a href="https://placehold.co/800x600/007bff/ffffff?text=Campus+2" data-lightbox="gallery"
+                    data-title="A vibrant classroom environment.">
+                    <img src="https://placehold.co/400x250/007bff/ffffff?text=Campus+2" class="img-fluid gallery-img" alt="Classroom">
+                </a>
+            </div>
+            <!-- Gallery Item: Event 1 -->
+            <div class="col-md-4 gallery-item" data-category="events">
+                <a href="https://placehold.co/800x600/ffc107/000000?text=Event+1" data-lightbox="gallery"
+                    data-title="Highlights from our annual day celebrations.">
+                    <img src="https://placehold.co/400x250/ffc107/000000?text=Event+1" class="img-fluid gallery-img"
+                        alt="Annual Day">
+                </a>
+            </div>
+            <!-- Gallery Item: Sports 1 -->
+            <div class="col-md-4 gallery-item" data-category="sports">
+                <a href="https://placehold.co/800x600/dc3545/ffffff?text=Sports+1" data-lightbox="gallery"
+                    data-title="Students actively participating in a sports event.">
+                    <img src="https://placehold.co/400x250/dc3545/ffffff?text=Sports+1" class="img-fluid gallery-img"
+                        alt="Sports Event">
+                </a>
+            </div>
+            <!-- Gallery Item: Lab 2 -->
+            <div class="col-md-4 gallery-item" data-category="labs">
+                <a href="https://placehold.co/800x600/28a745/ffffff?text=Lab+2" data-lightbox="gallery"
+                    data-title="Learning in our modern computer lab.">
+                    <img src="https://placehold.co/400x250/28a745/ffffff?text=Lab+2" class="img-fluid gallery-img"
+                        alt="Computer Lab">
+                </a>
+            </div>
+            <!-- Gallery Item: Event 2 -->
+            <div class="col-md-4 gallery-item" data-category="events">
+                <a href="https://placehold.co/800x600/ffc107/000000?text=Event+2" data-lightbox="gallery"
+                    data-title="A captivating cultural program performance.">
+                    <img src="https://placehold.co/400x250/ffc107/000000?text=Event+2" class="img-fluid gallery-img"
+                        alt="Cultural Program">
+                </a>
+            </div>
+            <!-- Gallery Item: Campus 3 -->
+            <div class="col-md-4 gallery-item" data-category="campus">
+                <a href="https://placehold.co/800x600/007bff/ffffff?text=Campus+3" data-lightbox="gallery"
+                    data-title="Our well-stocked and serene school library.">
+                    <img src="https://placehold.co/400x250/007bff/ffffff?text=Campus+3" class="img-fluid gallery-img" alt="Library">
+                </a>
+            </div>
+            <!-- Gallery Item: Sports 2 -->
+            <div class="col-md-4 gallery-item" data-category="sports">
+                <a href="https://placehold.co/800x600/dc3545/ffffff?text=Sports+2" data-lightbox="gallery"
+                    data-title="Future athletes showcasing their skills.">
+                    <img src="https://placehold.co/400x250/dc3545/ffffff?text=Sports+2" class="img-fluid gallery-img"
+                        alt="Athletics">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer from main website -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Moved lightbox.min.js script above the custom script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lightbox configuration (optional, but good for custom captions)
+            // This will now run after lightbox.min.js has loaded
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+            });
+            
+            const filterButtons = document.querySelectorAll('.filter-buttons .btn');
+            const galleryContainer = document.querySelector('.gallery-container'); // Get the container
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to the clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('d-none'); // Show item
+                        } else {
+                            item.classList.add('d-none'); // Hide item
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - Amruteshwar Secondary and Higher Secondary School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px;
+            }
+            .school-title {
+                font-size: 1.5rem !important;
+            }
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Faculty Section Styling --- */
+        .faculty-section h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .faculty-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .principal-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .principal-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20%;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .principal-card h3 {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .principal-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .teachers-grid {
+            margin-top: 40px;
+        }
+
+        .teacher-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 20%;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .teacher-card h4 {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 1.25rem;
+        }
+
+        .teacher-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Custom column classes for 5 items per row */
+        .col-5-items-per-row {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+
+        @media (max-width: 1200px) { /* Adjust for large desktops, 4 per row */
+            .col-5-items-per-row {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+
+        @media (max-width: 992px) { /* Adjust for tablets, 3 per row */
+            .col-5-items-per-row {
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+            }
+        }
+
+        @media (max-width: 768px) { /* Adjust for smaller tablets/large phones, 2 per row */
+            .col-5-items-per-row {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) { /* Adjust for small phones, 1 per row */
+            .col-5-items-per-row {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* --- Footer Styling --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img" alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img" alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link "  href="scholar_students.html">Scholar Students</a></li>
+                          <li class="nav-item"><a class="nav-link active " href="faculty.html">Faculty</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+              
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Faculty Section -->
+    <section class="container py-5 faculty-section">
+        <h2 class="text-center mb-5">Our Esteemed Faculty</h2>
+
+        <!-- Principal Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 col-lg-6">
+                <div class="principal-card">
+                    <img src="https://placehold.co/200x200/0d6efd/ffffff?text=Principal" class="principal-img" alt="Principal's Photo">
+                    <h3>Dr. Anjali Sharma</h3>
+                    <p>M.Sc. (Physics), Ph.D. (Education Management)</p>
+                    <p class="text-muted">With over 25 years of experience in educational leadership, Dr. Sharma is dedicated to fostering an environment of academic excellence and holistic development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teachers Section -->
+        <h2 class="text-center mb-5">Our Dedicated Teachers</h2>
+        <div class="row d-flex flex-wrap justify-content-center teachers-grid">
+            <!-- Teacher 1 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher1" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Rajeev Kumar</h4>
+                    <p>M.A. (English Literature)</p>
+                </div>
+            </div>
+            <!-- Teacher 2 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher2" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Priya Singh</h4>
+                    <p>M.Sc. (Mathematics)</p>
+                </div>
+            </div>
+            <!-- Teacher 3 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher3" class="teacher-img" alt="Teacher Photo">
+                    <h4>Dr. Sanjay Gupta</h4>
+                    <p>Ph.D. (Chemistry)</p>
+                </div>
+            </div>
+            <!-- Teacher 4 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher4" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Aisha Khan</h4>
+                    <p>B.Ed. (Social Studies)</p>
+                </div>
+            </div>
+            <!-- Teacher 5 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher5" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. David John</h4>
+                    <p>M.A. (History)</p>
+                </div>
+            </div>
+            <!-- Teacher 6 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher6" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Neha Verma</h4>
+                    <p>M.Sc. (Biology)</p>
+                </div>
+            </div>
+            <!-- Teacher 7 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher7" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Alok Sharma</h4>
+                    <p>B.Tech. (Computer Science)</p>
+                </div>
+            </div>
+            <!-- Teacher 8 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher8" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Kavita Devi</h4>
+                    <p>M.A. (Hindi)</p>
+                </div>
+            </div>
+            <!-- Teacher 9 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher9" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Vivek Rao</h4>
+                    <p>M.P.Ed. (Physical Education)</p>
+                </div>
+            </div>
+            <!-- Teacher 10 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher10" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Shruti Das</h4>
+                    <p>B.A. (Fine Arts)</p>
+                </div>
+            </div>
+            <!-- Teacher 11 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher11" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Rohit Verma</h4>
+                    <p>M.Com. (Commerce)</p>
+                </div>
+            </div>
+            <!-- Teacher 12 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher12" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Pooja Sharma</h4>
+                    <p>M.Sc. (Environmental Science)</p>
+                </div>
+            </div>
+            <!-- Teacher 13 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher13" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Amit Singh</h4>
+                    <p>B.Ed. (Science)</p>
+                </div>
+            </div>
+            <!-- Teacher 14 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher14" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Deepika Reddy</h4>
+                    <p>M.A. (Economics)</p>
+                </div>
+            </div>
+            <!-- Teacher 15 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher15" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Suresh Patil</h4>
+                    <p>B.Sc. (Agriculture)</p>
+                </div>
+            </div>
+            <!-- Teacher 16 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher16" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Rina Gupta</h4>
+                    <p>M.A. (Sociology)</p>
+                </div>
+            </div>
+            <!-- Teacher 17 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher17" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Kapil Dev</h4>
+                    <p>M.Sc. (Physics)</p>
+                </div>
+            </div>
+            <!-- Teacher 18 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher18" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Sunita Rao</h4>
+                    <p>B.Ed. (Primary Education)</p>
+                </div>
+            </div>
+            <!-- Teacher 19 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher19" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Arjun Mehta</h4>
+                    <p>M.A. (Political Science)</p>
+                </div>
+            </div>
+            <!-- Teacher 20 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher20" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Fatima Begum</h4>
+                    <p>M.A. (Urdu)</p>
+                </div>
+            </div>
+            <!-- Teacher 21 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher21" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Ganesh Iyer</h4>
+                    <p>M.Sc. (Statistics)</p>
+                </div>
+            </div>
+            <!-- Teacher 22 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher22" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Komal Sharma</h4>
+                    <p>B.Ed. (Special Education)</p>
+                </div>
+            </div>
+            <!-- Teacher 23 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher23" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Vikram Singh</h4>
+                    <p>M.A. (Geography)</p>
+                </div>
+            </div>
+            <!-- Teacher 24 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher24" class="teacher-img" alt="Teacher Photo">
+                    <h4>Ms. Ananya Bose</h4>
+                    <p>M.Sc. (Biotechnology)</p>
+                </div>
+            </div>
+            <!-- Teacher 25 -->
+            <div class="col-5-items-per-row">
+                <div class="teacher-card">
+                    <img src="https://placehold.co/120x120/ffc107/000000?text=Teacher25" class="teacher-img" alt="Teacher Photo">
+                    <h4>Mr. Siddharth Rao</h4>
+                    <p>M.A. (Philosophy)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

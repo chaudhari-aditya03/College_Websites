@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Amruteshwar Secondary and Higher Secondary School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        /* Combined CSS for consistent styling across pages */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header Styling --- */
+        .header-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-img {
+                max-width: 60px;
+            }
+            .school-title {
+                font-size: 1.5rem !important;
+            }
+            .school-subtitle {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .school-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+
+        .school-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: #002147;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #fff !important;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Admissions Section Styling --- */
+        .admissions-section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .admissions-section h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: center; /* Ensure title is centered */
+        }
+
+        .admissions-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .admissions-section h4 {
+            color: #343a40;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .eligibility-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .eligibility-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .eligibility-list li::before {
+            content: '\f058';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-size: 1.2rem;
+            top: 2px;
+        }
+
+        .eligibility-list li ul li::before {
+            content: '\f101';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--primary-color);
+            font-size: 1rem;
+            top: 4px;
+        }
+
+        .admission-image {
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .admission-image:hover {
+            transform: scale(1.02);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 8px;
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0a58ca;
+            border-color: #0a58ca;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Footer Styling --- */
+        .main-footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+
+        .main-footer h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .main-footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #adb5bd;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            background-color: #1a1d20;
+            padding: 15px 0;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+        }
+
+        .success-message {
+            display: none;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+
+        .success-message h4 {
+            color: #155724;
+            font-weight: 600;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header from main website -->
+    <div class="container-fluid bg-primary text-white py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="text-center flex-shrink-0">
+                <img src="img/smbst.png" class="img-fluid header-img" alt="Left Logo" />
+            </div>
+            <div class="flex-grow-1 text-center px-2">
+                <div class="school-subtitle">Sahyadri Bahujan Vidya Prasarak Samaj's</div>
+                <h1 class="school-title" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Amruteshwar Secondary and Higher Secondary School,<br>Sangamner Kd.</h1>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <img src="img/data.png" class="img-fluid header-img" alt="Right Logo" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation from main website -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-lg-none text-white" href="#">My School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="admissions.html">Admissions</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link "  href="scholar_students.html">Scholar Students</a></li>
+                       <li class="nav-item"><a class="nav-link "  href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5 admissions-section">
+        <h2 class="text-center mb-4">Admission Information</h2>
+        <div class="row align-items-center mb-5 gx-4">
+            <div class="col-md-6 order-md-1 order-2 eligibility-list">
+                <h4>Eligibility Criteria</h4>
+                <ul>
+                    <li>Secondary School (5th to 10th): Completion of previous grade with passing marks.</li>
+                    <li>Higher Secondary (11th & 12th):
+                        <ul>
+                            <li><strong>Science:</strong> Minimum 60% in 10th grade (with Science & Math preferred)
+                            </li>
+                            <li><strong>Commerce:</strong> Minimum 50% in 10th grade</li>
+                            <li><strong>Arts:</strong> Open to all streams with a passing 10th certificate</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="mt-4 text-muted fst-italic">For detailed information on eligibility or specific requirements,
+                    please contact our admissions office.</p>
+            </div>
+            <div class="col-md-6 order-md-2 order-1 mb-4 mb-md-0 text-center">
+                <img src="https://placehold.co/600x400/007bff/ffffff?text=Admissions+Process" class="img-fluid rounded admission-image" alt="Admissions Process">
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h3 class="text-center mb-4 text-primary">Apply Online Now!</h3>
+        <p class="text-center text-muted mb-4">Fill out the form below to begin your application process. Our
+            admissions team will get back to you shortly.</p>
+
+        <div id="successMessage" class="success-message">
+            <h4><i class="fas fa-check-circle me-2"></i> Application Submitted!</h4>
+            <p>Your details have been successfully submitted. Please click the button below to send your enquiry to our admissions team via WhatsApp.</p>
+            <a id="whatsappLink" href="#" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+            </a>
+        </div>
+
+        <form id="admissionForm" novalidate>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="studentName" class="form-label">Student Full Name <span
+                                class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="studentName" placeholder="Enter full name" required>
+                    <div class="invalid-feedback">
+                        Please enter the student's full name.
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="dob" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid date of birth.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" id="phone" placeholder="e.g., +91 9876543210" pattern="[0-9]{10}" required>
+                    <div class="invalid-feedback">
+                        Please enter a 10-digit mobile number.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="classType" class="form-label">Admission For <span class="text-danger">*</span></label>
+                    <select class="form-select" id="classType" required>
+                        <option value="">Choose Class</option>
+                        <option>5th</option>
+                        <option>6th</option>
+                        <option>7th</option>
+                        <option>8th</option>
+                        <option>9th</option>
+                        <option>10th</option>
+                        <option>11th - Science</option>
+                        <option>11th - Commerce</option>
+                        <option>11th - Arts</option>
+                        <option>12th - Science</option>
+                        <option>12th - Commerce</option>
+                        <option>12th - Arts</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a class for admission.
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Full Address <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="address" rows="2"
+                        placeholder="Street, City, State, Pin Code" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter your full address.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="message" class="form-label">Additional Message (Optional)</label>
+                <textarea class="form-control" id="message" rows="3"
+                    placeholder="Any specific questions or information you'd like to share?"></textarea>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="button" id="submitBtn" class="btn btn-primary btn-lg">Submit Application</button>
+            </div>
+            <p class="text-center text-muted mt-3"><small>Fields marked with <span class="text-danger">*</span> are
+                        mandatory.</small></p>
+        </form>
+    </section>
+
+    <!-- Footer from main website -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>About Us</h5>
+                    <p>Amruteshwar Secondary and Higher Secondary School is committed to providing quality education and fostering a nurturing environment for all students.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Sangamner KH., Ahmednagar</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 12345 67890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@amruteshwarschool.edu</li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Amruteshwar Secondary and Higher Secondary School. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('admissionForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const whatsappLink = document.getElementById('whatsappLink');
+
+            // **IMPORTANT: Replace this with your college's official admin mobile number (e.g., 919876543210 for India)**
+            const adminPhoneNumber = '919561844930';
+
+            submitBtn.addEventListener('click', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+
+                if (form.checkValidity()) {
+                    const studentName = document.getElementById('studentName').value;
+                    const dob = document.getElementById('dob').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const classType = document.getElementById('classType').value;
+                    const address = document.getElementById('address').value;
+                    const message = document.getElementById('message').value;
+
+                    const whatsappMessage = `
+*New Admission Enquiry*
+---------------------------------
+*Student Name:* ${studentName}
+*Date of Birth:* ${dob}
+*Email:* ${email || 'N/A'}
+*Mobile No:* ${phone}
+*Admission For:* ${classType}
+*Full Address:* ${address}
+*Additional Message:* ${message || 'N/A'}
+`.trim();
+
+                    const encodedMessage = encodeURIComponent(whatsappMessage);
+                    const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodedMessage}`;
+                    
+                    // Set the href of the WhatsApp link
+                    whatsappLink.href = whatsappUrl;
+
+                    // Hide the form and show the success message
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
